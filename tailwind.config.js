@@ -29,6 +29,10 @@ module.exports = {
 
       fontFamily: {
         'sans': [ 'Inter', 'system-ui', 'sans-serif' ]
+      },
+
+      screens: {
+        'md': '1080px'
       }
     },
   },

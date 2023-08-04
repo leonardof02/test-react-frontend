@@ -8,29 +8,31 @@ interface props {
 
 export default function Hero({ title, subtitle }: props) {
     return (
-        <div className="flex flex-1 gap-5 text-white shadow-2xl sm:flex-col md:flex-row justify-evenly bg-background-blue">
-            <div className="max-w-lg mb-32 mt-72 ms-20">
-                <h1 className="text-6xl font-extrabold">{title}</h1>
-                <h2 className="text-lg mt-7">{subtitle}</h2>
-                <div className="relative ms-10">
-                    <div className="absolute w-32 h-32 rotate-45 rounded-xl top-14 bg-background-blue"></div>
+        <div className="shadow-2xl px-14 bg-background-blue">
+            <div className="flex flex-col items-center justify-center w-full gap-5 text-white md:grid md:grid-cols-2 bg-background-blue">
+                <div className="max-w-2xl m-12">
+                    <h1 className="text-5xl font-extrabold md:text-6xl">{title}</h1>
+                    <h2 className="mt-6 text-md md:text-lg">{subtitle}</h2>
+                </div>
+                <div className="flex items-center m-5">
+                    <Image
+                        src="/images/numbers.svg"
+                        alt="Numbers"
+                        className="absolute z-10 opacity-30 right-3"
+                        width={1000}
+                        height={900}
+                    />
+                    <Image
+                        width={1000}
+                        height={900}
+                        src="/images/main-image.png"
+                        alt="People and Computers"
+                        className="z-10 w-full m-10 md:m-0 md:translate-y-12 md:scale-125"
+                    />
                 </div>
             </div>
-            <div className="flex-1 m-5">
-                <Image
-                    src="/images/numbers.svg"
-                    alt="Numbers"
-                    className="absolute opacity-30"
-                    objectFit="contain"
-                    fill
-                />
-                <Image
-                    fill
-                    objectFit="contain"
-                    src="/images/main-image.png"
-                    alt="People and Computers"
-                    className="h-auto max-w-3xl"
-                />
+            <div className="relative">
+                <div className="absolute w-20 h-20 rotate-45 -top-12 md:w-20 md:h-20 ms-10 md:ms-52 rounded-xl bg-background-blue"></div>
             </div>
         </div>
     );
