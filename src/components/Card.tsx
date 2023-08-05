@@ -1,28 +1,37 @@
-import React from "react";
+import React, { ReactNode, useState } from "react";
+import styles from "@/components/Card.module.css";
 import Image from "next/image";
 
 interface props {
     title: string;
     description: string;
+    image: ReactNode;
 }
 
-export default function Card({ title, description }: props) {
+export default function Card({ title, description, image }: props) {
+
+    const [ hovered, setHovered ] = useState<boolean>(false)
+
+    const handleMouseEnter = (  ) => {
+        setHovered( true );
+    }
+
+    const handleMouseOver = (  ) => {
+        setHovered( false );
+    }
+
     return (
-        <div className="flex flex-col flex-shrink-0 max-w-[300px] gap-3 p-4 text-black transition-colors shadow-2xl hover:bg-primary hover:text-white">
-            <Image
-                width={100}
-                height={100}
-                src="/images/icon-1.svg"
-                alt="Icon"
-                color="black"
-            />
+        <div
+            className={` ${ hovered ? styles.hovered : styles.noHovered } flex flex-col flex-shrink-0 max-w-[280px] gap-3 p-4 text-black transition-colors shadow-lg hover:bg-primary hover:text-white hover:cursor-pointer`}
+            onMouseEnter={ handleMouseEnter }
+            onMouseOver={ handleMouseOver }
+        >
+            {image}
             <h3 className="text-2xl font-bold">{title}</h3>
             <p className="text-sm">{description}</p>
-            <a
-                href="#"
-                className={`text-2xl font-bold text-white`}
-            >
+            <a href="#" className={`flex gap-2 text-2xl font-bold text-white`}>
                 <p>Leer Mas</p>
+                <Image width={10} height={10} src="/images/read-more.svg" alt="Right Arrow" />
             </a>
         </div>
     );

@@ -1,0 +1,9 @@
+.icon {
+    color: #1c1c1c;
+    fill: #1c1c1c;
+}
+
+.icon.hovered {
+    color: #1c1c1c;
+    fill: #2e53a3;
+}

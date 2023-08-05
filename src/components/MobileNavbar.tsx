@@ -12,7 +12,7 @@ export default function MobileNavbar() {
             </button>
                 <div className={`fixed bg-white transition-all overflow-hidden z-50 ${ open ? "h-full" : "h-0" }`}>
                     <button
-                        className="p-5 rounded-full hover:bg-slate-300"
+                        className="w-12 h-12 p-2 m-3 rounded-full hover:bg-slate-300"
                         onClick={ () => setOpen(false) }
                     >
                         X

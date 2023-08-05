@@ -1,0 +1,9 @@
+.noHovered svg {
+    color: #2e53a3; 
+    fill: #2e53a3;
+}
+
+.hovered svg {
+    color: #fff;
+    fill: #fff;
+}
