@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Image from "next/image";
+import LanguageChanger from "./LanguageChanger";
 
 const navbarOptions = ["Inicio", "Servicios", "Nosotros", "Herramientas", "Socios"];
 
@@ -7,8 +9,8 @@ export default function MobileNavbar() {
 
     return (
         <nav className="flex justify-end md:hidden bg-background-blue">
-            <button className="p-3 text-white bg-transparent" onClick={() => setOpen(true)}>
-                ___
+            <button className="p-20 text-white bg-transparent" onClick={() => setOpen(true)}>
+               <Image width={50} height={50} src="/images/menu.svg" alt="Menu Icon" />
             </button>
                 <div className={`fixed bg-white transition-all overflow-hidden z-50 ${ open ? "h-full" : "h-0" }`}>
                     <button
@@ -18,6 +20,9 @@ export default function MobileNavbar() {
                         X
                     </button>
                     <ul className="flex flex-col items-start w-screen">
+                        <div className="w-full p-5">
+                            <LanguageChanger />
+                        </div>
                         {navbarOptions.map((option, index) => (
                             <li
                                 key={index}

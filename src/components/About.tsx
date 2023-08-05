@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import Button from "./Button";
 import CodingImage from "./CodingImage";
 import { useServiceContext } from "@/context/ServicesContextProvider";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+    
     const { services } = useServiceContext();
+    const t = useTranslations();
 
     return (
         <section className="flex flex-col items-center mt-12 mb-32 md:grid md:grid-cols-2 place-items-center">
@@ -20,7 +23,7 @@ export default function About() {
                     animi quod amet eligendi accusantium. Iste sapiente ipsam itaque?
                 </p>
                 <h4 className="text-2xl font-bold text-right text-black">
-                    Acceder a esta seccion mediante el context
+                    { t('Title') }
                 </h4>
                 <ul className="flex flex-col gap-3 text-right">
                     { services.length === 0 ? "Loading..." : services.map((service, index) => (

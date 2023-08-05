@@ -1,0 +1,10 @@
+{
+    "Navbar": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About",
+        "tools": "Tools",
+        "partners": "Partners"
+    },
+    "Title": "Traduce this wonderful title"
+}
