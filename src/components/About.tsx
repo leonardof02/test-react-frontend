@@ -1,26 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "./Button";
 import CodingImage from "./CodingImage";
+import { useServiceContext } from "@/context/ServicesContextProvider";
 
 export default function About() {
+    const { services } = useServiceContext();
+
     return (
-        <section className="flex flex-col gap-4 mx-5 mt-8 mb-56 md:px-20 md:grid md:grid-cols-2 md:py-5 h-full md:max-h-[540px] w-auto">
-            <div className="flex items-center w-full justify-centermx-10">
-                <CodingImage />
-            </div>
-            <div className="flex flex-col gap-5 md:block">
+        <section className="flex flex-col items-center mt-12 mb-32 md:grid md:grid-cols-2 place-items-center">
+            <CodingImage />
+            <div className="flex flex-col mt-15 md:mt-0 md:text-right gap-5 p-5 max-w-[550px]">
                 <h3 className="text-xl font-bold uppercase text-primary">Sobre Nosotros</h3>
-                <h4 className="text-3xl font-bold text-black">Traducir este titulo y el navbar</h4>
+                <h4 className="text-3xl font-bold text-black">
+                    Traducir este titulo y el navbar
+                </h4>
                 <p className="text-lighy-gray">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit culpa
                     dolorum repudiandae, porro harum soluta iure facere cumque? Totam eius et
                     animi quod amet eligendi accusantium. Iste sapiente ipsam itaque?
                 </p>
-                <h4>Acceder a esta seccion mediante el context</h4>
-                <ul>
-                    <li>dfghdfghdfhgdfhdfghdfgh</li>
-                    <li> dgfsdgsdgsdgsdgsdfgsdfg</li>
-                    <li>klsdfjsklfj</li>
+                <h4 className="text-2xl font-bold text-right text-black">
+                    Acceder a esta seccion mediante el context
+                </h4>
+                <ul className="flex flex-col gap-3 text-right">
+                    { services.length === 0 ? "Loading..." : services.map((service, index) => (
+                        <div key={index} className="flex items-center justify-end gap-3">
+                            <li>{service}</li>
+                            <div className="flex items-center justify-center w-[20px] h-[20px] border rounded-full border-primary">
+                                <div className="w-[4px] h-[4px] rounded-full bg-primary"></div>
+                            </div>
+                        </div>
+                    ))}
                 </ul>
             </div>
         </section>

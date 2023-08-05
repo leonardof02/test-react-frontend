@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Card from "./Card";
 import Post from "@/types/Post";
 import { API_URL, ICONS } from "@/Constants";
+import { useServiceContext } from "@/context/ServicesContextProvider";
 
 export default function Carrousel() {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [data, setData] = useState<Post[] | null>(null);
     const [isLoading, setLoading] = useState<boolean>(true);
+
+    const { setServices } = useServiceContext();
 
     useEffect(() => {
         // Traer los recursos de jsonplaceholder
@@ -17,6 +20,8 @@ export default function Carrousel() {
             // Seleccionar solo 3 elementos
             setData(data.slice(0, 3));
             setLoading(false);
+            // Actualizar el contexto
+            setServices( data.slice(0, 3).map( item => item.title ) );
         }
 
         fetchData();
@@ -25,7 +30,7 @@ export default function Carrousel() {
         return () => {
             clearInterval(slideInterval);
         };
-    });
+    }, []);
 
     // Slider Navigation
     const next = () => {
@@ -54,7 +59,7 @@ export default function Carrousel() {
                         <div className="flex overflow-hidden md:w-[630px] w-[315px] sm:w-[630px]">
                             {data && (
                                 <div
-                                    className="flex gap-5 md:m-10"
+                                    className="flex gap-5 p-5 md:m-10"
                                     style={{
                                         transform: `translateX(${(-currentIndex * 630) / 2}px)`,
                                         transition: "transform .2s ease"
@@ -83,7 +88,7 @@ export default function Carrousel() {
                 </>
             )}
             {data && (
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center justify-center gap-2 mt-4">
                     {data.map((item, index) => (
                         <div
                             key={index}
