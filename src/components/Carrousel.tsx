@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Card from "./Card";
 import Post from "@/types/Post";
-import { API_URL, ICONS } from "@/Constants";
+import { API_URL, ICONS_URL } from "@/Constants";
 import { useServiceContext } from "@/context/ServicesContextProvider";
 
 export default function Carrousel() {
@@ -67,7 +67,7 @@ export default function Carrousel() {
                                 >
                                     {data.map((item, index) => (
                                         <Card
-                                            image={ ICONS[index] }
+                                            imageUrl={ ICONS_URL[index] }
                                             title={item.title}
                                             description={item.body}
                                             key={index}

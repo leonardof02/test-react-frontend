@@ -1,14 +1,14 @@
 import React, { ReactNode, useState } from "react";
-import styles from "@/components/Card.module.css";
 import Image from "next/image";
+import Icon from "./Icon";
 
 interface props {
     title: string;
     description: string;
-    image: ReactNode;
+    imageUrl: string;
 }
 
-export default function Card({ title, description, image }: props) {
+export default function Card({ title, description, imageUrl }: props) {
 
     const [ hovered, setHovered ] = useState<boolean>(false)
 
@@ -16,17 +16,17 @@ export default function Card({ title, description, image }: props) {
         setHovered( true );
     }
 
-    const handleMouseOver = (  ) => {
+    const handleMouseLeave = (  ) => {
         setHovered( false );
     }
 
     return (
         <div
-            className={` ${ hovered ? styles.hovered : styles.noHovered } flex flex-col flex-shrink-0 max-w-[280px] gap-3 p-4 text-black transition-colors shadow-lg hover:bg-primary hover:text-white hover:cursor-pointer`}
+            className={`flex flex-col flex-shrink-0 max-w-[280px] gap-3 p-4 text-black transition-colors shadow-lg hover:bg-primary hover:text-white hover:cursor-pointer`}
             onMouseEnter={ handleMouseEnter }
-            onMouseOver={ handleMouseOver }
+            onMouseLeave={ handleMouseLeave }
         >
-            {image}
+            <Icon color={ hovered ? "#fff" : "#267CC7" } src={imageUrl} alt="Icon"/>
             <h3 className="text-2xl font-bold">{title}</h3>
             <p className="text-sm">{description}</p>
             <a href="#" className={`flex gap-2 text-2xl font-bold text-white`}>

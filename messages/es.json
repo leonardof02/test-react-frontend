@@ -4,7 +4,8 @@
         "services": "Servicios",
         "about": "Nosotros",
         "tools": "Herramientas",
-        "partners": "Socios"
+        "partners": "Socios",
+        "contact": "Contactar"
     },
     "Title": "Traduce este titulo maravilloso y el Navbar usando next-intl"
 }

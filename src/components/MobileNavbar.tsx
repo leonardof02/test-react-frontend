@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import LanguageChanger from "./LanguageChanger";
-
-const navbarOptions = ["Inicio", "Servicios", "Nosotros", "Herramientas", "Socios"];
+import { useTranslations } from "next-intl";
+import Button from "./Button";
 
 export default function MobileNavbar() {
     const [open, setOpen] = useState<boolean>(false);
+
+    const t = useTranslations("Navbar");
+    const navbarOptions = [t("home"), t("services"), t("about"), t("tools"), t("partners")];
 
     return (
         <nav className="flex justify-end md:hidden bg-background-blue">
@@ -31,6 +34,9 @@ export default function MobileNavbar() {
                                 {option}
                             </li>
                         ))}
+                        <li>
+                            <Button text={ t("contact") } />
+                        </li>
                     </ul>
                 </div>
         </nav>

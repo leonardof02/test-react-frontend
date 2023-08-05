@@ -22,7 +22,7 @@ export default function DesktopNavbar() {
                     ))}
                 </ul>
                 <div className="flex gap-5">
-                    <Button text="Contactar" />
+                    <Button text={ t("contact") } />
                     <LanguageChanger />
                 </div>
             </div>
