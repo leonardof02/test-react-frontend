@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import Image from "next/image";
 import Icon from "./Icon";
+import { ASSETS_PREFIX } from "@/Constants";
 
 interface props {
     title: string;
@@ -31,7 +32,7 @@ export default function Card({ title, description, imageUrl }: props) {
             <p className="text-sm">{description}</p>
             <a href="#" className={`flex gap-2 text-2xl font-bold text-white`}>
                 <p>Leer Mas</p>
-                <Image width={10} height={10} src="/images/read-more.svg" alt="Right Arrow" />
+                <Image width={10} height={10} src={`${ASSETS_PREFIX}/images/read-more.svg`} alt="Right Arrow" />
             </a>
         </div>
     );

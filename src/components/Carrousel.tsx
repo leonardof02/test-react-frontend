@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Card from "./Card";
 import Post from "@/types/Post";
-import { API_URL, ICONS_URL } from "@/Constants";
+import { API_URL, ASSETS_PREFIX, ICONS_URL } from "@/Constants";
 import { useServiceContext } from "@/context/ServicesContextProvider";
 import Loader from "./Loader";
 
@@ -14,8 +14,6 @@ export default function Carrousel() {
     const { setServices } = useServiceContext();
 
     useEffect(() => {
-        // Hacer que el slide se mueva automaticamente
-        const slideInterval = setInterval(next, 2_000);
         
         // Traer los recursos de jsonplaceholder
         async function fetchData() {
@@ -29,12 +27,7 @@ export default function Carrousel() {
         }
 
         fetchData();
-
-        
-        return () => {
-            clearInterval(slideInterval);
-        };
-    }, []);
+    }, [setServices]);
 
     // Slider Navigation
     const next = () => {
@@ -53,7 +46,7 @@ export default function Carrousel() {
                 <>
                     <div className="flex gap-5">
                         <Image
-                            src="/images/left-arrow.svg"
+                            src={`${ASSETS_PREFIX}/images/left-arrow.svg`}
                             width={15}
                             height={15}
                             alt="Left Arrow"
@@ -81,7 +74,7 @@ export default function Carrousel() {
                             )}
                         </div>
                         <Image
-                            src="/images/right-arrow.svg"
+                            src={`${ASSETS_PREFIX}/images/right-arrow.svg`}
                             width={15}
                             height={15}
                             alt="Right Arrow"

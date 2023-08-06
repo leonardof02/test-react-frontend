@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "./Button";
 import Carrousel from "./Carrousel";
+import { ASSETS_PREFIX } from "@/Constants";
 
 export default function Services() {
     return (
@@ -18,7 +19,7 @@ export default function Services() {
                     text="Ver Mas"
                     fit
                     icon={
-                        <Image width={25} height={25} src="/images/arrow.svg" alt="Arrow" />
+                        <Image width={25} height={25} src={`${ASSETS_PREFIX}/images/arrow.svg`} alt="Arrow" />
                     }
                 />
             </div>

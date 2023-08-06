@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { ASSETS_PREFIX } from "@/Constants";
 
 interface props {
     title: string;
@@ -16,7 +17,7 @@ export default function Hero({ title, subtitle }: props) {
                 </div>
                 <div className="flex items-center m-5">
                     <Image
-                        src="/images/numbers.svg"
+                        src={`${ASSETS_PREFIX}/images/numbers.svg`}
                         alt="Numbers"
                         className="absolute z-10 opacity-30 right-3"
                         width={1000}
@@ -25,7 +26,7 @@ export default function Hero({ title, subtitle }: props) {
                     <Image
                         width={1000}
                         height={900}
-                        src="/images/main-image.png"
+                        src={`${ASSETS_PREFIX}/images/main-image.png`}
                         alt="People and Computers"
                         className="z-10 w-full m-10 md:m-0 md:translate-y-12 md:scale-125"
                     />
