@@ -4,6 +4,7 @@ import Card from "./Card";
 import Post from "@/types/Post";
 import { API_URL, ICONS_URL } from "@/Constants";
 import { useServiceContext } from "@/context/ServicesContextProvider";
+import Loader from "./Loader";
 
 export default function Carrousel() {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -13,6 +14,9 @@ export default function Carrousel() {
     const { setServices } = useServiceContext();
 
     useEffect(() => {
+        // Hacer que el slide se mueva automaticamente
+        const slideInterval = setInterval(next, 2_000);
+        
         // Traer los recursos de jsonplaceholder
         async function fetchData() {
             const response = await fetch(API_URL);
@@ -26,7 +30,7 @@ export default function Carrousel() {
 
         fetchData();
 
-        const slideInterval = setInterval(next, 5_000);
+        
         return () => {
             clearInterval(slideInterval);
         };
@@ -34,17 +38,17 @@ export default function Carrousel() {
 
     // Slider Navigation
     const next = () => {
-        if (data) setCurrentIndex(currentIndex === data.length - 1 ? 0 : currentIndex + 1);
+        if (data) setCurrentIndex((currentIndex === data.length - 1) ? 0 : currentIndex + 1);
     };
 
     const prev = () => {
-        if (data) setCurrentIndex(currentIndex === 0 ? data.length - 1 : currentIndex - 1);
+        if (data) setCurrentIndex((currentIndex === 0) ? data.length - 1 : currentIndex - 1);
     };
 
     return (
         <div className="flex flex-col items-center w-full md:mt-0">
             {isLoading ? (
-                "Loading"
+                <Loader />
             ) : (
                 <>
                     <div className="flex gap-5">

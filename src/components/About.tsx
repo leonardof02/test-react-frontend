@@ -3,6 +3,7 @@ import Button from "./Button";
 import CodingImage from "./CodingImage";
 import { useServiceContext } from "@/context/ServicesContextProvider";
 import { useTranslations } from "next-intl";
+import Loader from "./Loader";
 
 export default function About() {
     const { services } = useServiceContext();
@@ -24,7 +25,7 @@ export default function About() {
                 </h4>
                 <ul className="flex flex-col gap-3 text-right">
                     {services.length === 0
-                        ? "Loading..."
+                        ? <Loader />
                         : services.map((service, index) => (
                               <div key={index} className="flex items-center justify-end gap-3">
                                   <li>{service}</li>

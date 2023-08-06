@@ -26,7 +26,7 @@ export default function Card({ title, description, imageUrl }: props) {
             onMouseEnter={ handleMouseEnter }
             onMouseLeave={ handleMouseLeave }
         >
-            <Icon color={ hovered ? "#fff" : "#267CC7" } src={imageUrl} alt="Icon"/>
+            <Icon hovered={ hovered } src={imageUrl} alt="Icon"/>
             <h3 className="text-2xl font-bold">{title}</h3>
             <p className="text-sm">{description}</p>
             <a href="#" className={`flex gap-2 text-2xl font-bold text-white`}>

@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export default function LanguageChanger() {
     const lang = useRouter();
-    console.log(lang);
 
     return (
         <button className="p-3 rounded-full hover:bg-slate-300">

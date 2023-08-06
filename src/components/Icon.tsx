@@ -1,13 +1,12 @@
 import React from "react";
-import Image from "next/image";
 
 interface props {
-    color: string;
+    hovered: boolean;
     src: string;
     alt: string;
 }
 
-export default function Icon({ color, src, alt }: props) {
+export default function Icon({ hovered, src, alt }: props) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <Image width={150} height={150} src={src} alt={alt} style={{fill: color}}/>;
+    return <div className="w-32 h-32 bg-primary" style={ { filter: hovered ? "brightness(100)" : "", mask: `url(${ src })`, maskRepeat: "no-repeat", maskSize: "cover"  } }/>;
 }

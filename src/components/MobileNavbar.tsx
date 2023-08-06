@@ -16,13 +16,13 @@ export default function MobileNavbar() {
                <Image width={50} height={50} src="/images/menu.svg" alt="Menu Icon" />
             </button>
                 <div className={`fixed bg-white transition-all overflow-hidden z-50 ${ open ? "h-full" : "h-0" }`}>
-                    <button
-                        className="w-12 h-12 p-2 m-3 rounded-full hover:bg-slate-300"
-                        onClick={ () => setOpen(false) }
-                    >
-                        X
-                    </button>
                     <ul className="flex flex-col items-start w-screen">
+                        <button
+                            className="w-20 m-2 text-2xl font-black rounded-full aspect-square text-lighy-gray hover:bg-slate-300"
+                            onClick={ () => setOpen(false) }
+                        >
+                            X
+                        </button>
                         <div className="w-full p-5">
                             <LanguageChanger />
                         </div>
@@ -34,7 +34,7 @@ export default function MobileNavbar() {
                                 {option}
                             </li>
                         ))}
-                        <li>
+                        <li className="w-full p-3">
                             <Button text={ t("contact") } />
                         </li>
                     </ul>
