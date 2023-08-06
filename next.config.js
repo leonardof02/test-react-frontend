@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    assetPrefix: "/test-react-frontend",
-    basePath: "/test-react-frontend",
+    assetPrefix: "/",
+    basePath: "/",
     i18n: {
         locales: ['en', 'es'],
         defaultLocale: 'es',
